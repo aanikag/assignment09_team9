@@ -15,5 +15,5 @@
 from apiPackage.apiClass import *
 
 if __name__ == "__main__":
-    searchValue = input("Please enter one word to search for a recipe: ")
+    searchValue = input("Please enter one word to search for a recipe: ")     #gets user input to find a recipe
     mySearch = API(searchValue)

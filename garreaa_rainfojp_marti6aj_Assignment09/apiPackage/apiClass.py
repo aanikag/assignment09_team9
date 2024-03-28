@@ -26,16 +26,16 @@ class API:
             self.searchValue = searchValue
             print("")
             startURL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
-            search = startURL+searchValue
-            response = requests.get(search)
+            search = startURL+searchValue   #appends search value to URL
+            response = requests.get(search)   #gets results from API
             json_string = response.content
     
             parsed_json = json.loads(json_string) # Now we have a python dictionary
         
             print("\033[1mHow to make", parsed_json['meals'][0]['strMeal'], "- a(n)", parsed_json['meals'][0]['strArea'], parsed_json['meals'][0]['strCategory'], "- \033[0m")
-            print(parsed_json['meals'][0]['strInstructions'])
+            print(parsed_json['meals'][0]['strInstructions'])     #prints Instructions for the meal chosen
         except:
-            print("Sorry, no recipe found in our database!")
+            print("Sorry, no recipe found in our database!")    #in case user enters a value not found in databse, this will return a message rather than an error 
     
     if __name__ == "__main__":
         pass
