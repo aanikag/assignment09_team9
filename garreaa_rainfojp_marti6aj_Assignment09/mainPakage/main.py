@@ -7,25 +7,13 @@
 # Brief Description of the assignment: This assignment focuses on calling APIs.
 
 # Brief Description of what this module does: This module focuses on using JSON and calling APIs in Eclipse.
-# Citations:
-# Anything else that's relevant:
+# Citations: NA
+# Anything else that's relevant: NA
 
 #main.py 
 
-import requests
-import json
-
+from apiPackage.apiClass import *
 
 if __name__ == "__main__":
     searchValue = input("Please enter one word to search for a recipe: ")
-    print("")
-    startURL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
-    search = startURL+searchValue
-    response = requests.get(search)
-    json_string = response.content
-
-
-    parsed_json = json.loads(json_string) # Now we have a python dictionary
-
-    print("\033[1mHow to make", parsed_json['meals'][0]['strMeal'], "- a(n)", parsed_json['meals'][0]['strArea'], parsed_json['meals'][0]['strCategory'], "- \033[0m")
-    print(parsed_json['meals'][0]['strInstructions'])
+    mySearch = API(searchValue)
